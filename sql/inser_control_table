@@ -1,0 +1,13 @@
+Insert into controltable1 (ID,source_object_setting,sink_object_setting,type)
+VALUES(1,'{"database_name":"swathi","source_schema":"dbo","source_table":"employees"}',
+'{"sink_schema":null,"sink_table":null,"sink_filename":"employees.csv"}','ssms-storage'),
+(2,'{"database_name":"swathi","source_schema":"dbo","source_table":"cats"}',
+'{"sink_schema":null,"sink_table":null,"sink_filename":"cats.csv"}','ssms-storage'),
+(3,'{"database_name":"swathi1","source_schema":"dbo","source_table":"single_rental"}',
+'{"sink_schema":null,"sink_table":null,"sink_filename":"single_rental.csv"}','ssms-storage'),
+(4,'{"database_name":"swathi","source_schema":"dbo","source_table":"employees"}',
+'{"sink_schema":"dbo","sink_table":"employees","sink_filename":null}','ssms-sink'),
+(5,'{"database_name":"swathi","source_schema":"dbo","source_table":"cats"}',
+'{"sink_schema":"dbo","sink_table":"cats","sink_filename":null}','ssms-sink'),
+(6,'{"database_name":"swathi1","source_schema":"dbo","source_table":"single_rental"}',
+'{"sink_schema":"dbo","sink_table":"single_rental","sink_filename":null}','ssms-sink');
