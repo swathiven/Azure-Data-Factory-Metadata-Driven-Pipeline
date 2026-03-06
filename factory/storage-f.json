@@ -1,0 +1,9 @@
+{
+	"name": "storage-f",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0454cdd1-9447-45fb-ba3c-e9090c5534e9",
+		"tenantId": "637e6c1d-10ab-4258-92b1-9783d1406909"
+	}
+}
