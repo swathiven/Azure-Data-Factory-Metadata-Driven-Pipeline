@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "project-onprem-df"
+		},
+		"ls_adls_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "LAPTOP-A61EKOP8"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "@{linkedService().databasename}"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "LAPTOP-A61EKOP8\\subba"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": "https://storagenprem.dfs.core.windows.net/"
+		},
+		"ls_azure_sql_properties_typeProperties_server": {
+			"value": "swathi3.database.windows.net"
+		},
+		"ls_azure_sql_properties_typeProperties_database": {
+			"value": "tanvi"
+		},
+		"ls_azure_sql_properties_typeProperties_userName": {
+			"value": "adf_user"
+		},
+		"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+			"value": "https://projectkys1.vault.azure.net/"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_cn": {
+			"value": "data"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_fold": {
+			"value": "output"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_filename": {
+			"value": "products.csv"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

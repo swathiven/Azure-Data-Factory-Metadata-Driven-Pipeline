@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "project-onprem-df"
+		},
+		"ls_adls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adls'"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-A61EKOP8"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().databasename}"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "LAPTOP-A61EKOP8\\subba"
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagenprem.dfs.core.windows.net/"
+		},
+		"ls_azure_sql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "swathi3.database.windows.net"
+		},
+		"ls_azure_sql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "tanvi"
+		},
+		"ls_azure_sql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adf_user"
+		},
+		"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://projectkys1.vault.azure.net/"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_cn": {
+			"type": "string",
+			"defaultValue": "data"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_fold": {
+			"type": "string",
+			"defaultValue": "output"
+		},
+		"trigger1_properties_SetActivityExercise_parameters_filename": {
+			"type": "string",
+			"defaultValue": "products.csv"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "project-onprem-df_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adls_accountKey": {
+						"value": "[parameters('ls_adls_accountKey')]"
+					},
+					"ls_adls_properties_typeProperties_url": {
+						"value": "[parameters('ls_adls_properties_typeProperties_url')]"
+					},
+					"ls_azurekeyvault_properties_typeProperties_baseUrl": {
+						"value": "[parameters('ls_azurekeyvault_properties_typeProperties_baseUrl')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					},
+					"ls_azure_sql_properties_typeProperties_server": {
+						"value": "[parameters('ls_azure_sql_properties_typeProperties_server')]"
+					},
+					"ls_azure_sql_properties_typeProperties_database": {
+						"value": "[parameters('ls_azure_sql_properties_typeProperties_database')]"
+					},
+					"ls_azure_sql_properties_typeProperties_userName": {
+						"value": "[parameters('ls_azure_sql_properties_typeProperties_userName')]"
+					},
+					"trigger1_properties_SetActivityExercise_parameters_cn": {
+						"value": "[parameters('trigger1_properties_SetActivityExercise_parameters_cn')]"
+					},
+					"trigger1_properties_SetActivityExercise_parameters_fold": {
+						"value": "[parameters('trigger1_properties_SetActivityExercise_parameters_fold')]"
+					},
+					"trigger1_properties_SetActivityExercise_parameters_filename": {
+						"value": "[parameters('trigger1_properties_SetActivityExercise_parameters_filename')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
